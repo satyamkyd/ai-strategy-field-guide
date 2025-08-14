@@ -1,0 +1,12 @@
+graph TD
+  C[Central AI Team] --- BU1[Business Unit A]
+  C --- BU2[Business Unit B]
+  C --- BU3[Business Unit C]
+  subgraph Roles
+    P[Product Lead]:::r
+    DT[Data/ML Eng]:::r
+    AT[AI Translator]:::r
+    SEC[Security]:::r
+    LEG[Legal]:::r
+  end
+  classDef r fill:#eef,stroke:#555;

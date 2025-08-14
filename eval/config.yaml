@@ -1,0 +1,51 @@
+# Evaluation Harness Configuration
+
+task: "summary"
+provider: "openai"  # or "anthropic" or "local"
+model: "gpt-*"      # user fills in
+temperature: 0.2
+max_tokens: 300
+
+# Retrieval settings (if RAG)
+retrieval:
+  top_k: 6
+  rerank: true
+  filters: ["date>2023-01-01"]
+
+# Evaluation metrics
+metrics:
+  - exact_match
+  - rubric_faithfulness
+  - cost_latency
+
+# Rubric criteria (for rubric scoring)
+rubric:
+  coverage:
+    - 0: "Misses key points"
+    - 1: "Captures most"
+    - 2: "Captures all essentials"
+  faithfulness:
+    - 0: "Hallucinations"
+    - 1: "Minor errors"
+    - 2: "Fully grounded"
+  brevity:
+    - 0: "Overlong"
+    - 1: "Slightly long"
+    - 2: "Concise (≤120 words)"
+  tone:
+    - 0: "Off"
+    - 1: "Mostly on"
+    - 2: "On-brand"
+
+# Cost and latency thresholds
+thresholds:
+  max_cost_per_task: 0.002
+  max_latency_p95: 2.0
+  min_faithfulness: 0.95
+  min_coverage: 0.8
+
+# Output format
+output_schema:
+  decisions: "array of key decisions made"
+  risks: "array of identified risks"
+  actions: "array of action items with owner and due date"

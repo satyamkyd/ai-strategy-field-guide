@@ -1,0 +1,8 @@
+flowchart TB
+  L[Launch Plan (workflow + owners + SLOs)] --> P[Performance Gates]
+  P --> T[Target Output Spec]
+  T --> V[Value Statement]
+  V --> D[Data Plan]
+  D --> M[Model/Pattern Choice]
+  M --> Go[Build & Eval]
+  Go --> L

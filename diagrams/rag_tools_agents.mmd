@@ -1,0 +1,9 @@
+flowchart LR
+    U[User] --> Orchestrator
+    Orchestrator --> RET[Retriever]
+    Orchestrator --> TOOLS[Functions/APIs]
+    RET --> LLM[LLM]
+    TOOLS --> LLM
+    LLM --> Orchestrator
+    Orchestrator --> API[App]
+    API --> Obs[Eval + Cost + Safety]

@@ -1,0 +1,8 @@
+flowchart LR
+    U[User] --> API[App/API]
+    API --> RET[Retriever]
+    RET --> IDX[Vector/Hybrid Index]
+    API --> LLM[LLM]
+    RET --> LLM
+    LLM --> API
+    API --> Obs[Logging & Metrics]

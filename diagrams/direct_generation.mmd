@@ -1,0 +1,5 @@
+flowchart LR
+    U[User] --> API[App/API]
+    API --> LLM[Hosted LLM]
+    LLM --> API
+    API --> Obs[Logging & Metrics]

@@ -1,0 +1,8 @@
+flowchart LR
+  D[Datasets: golden + adversarial + live] --> P[Prompt/Config variants]
+  P --> R[Runner]
+  R --> S[Scorers]
+  S --> M[Metrics dashboard]
+  M --> T{Pick best?}
+  T -- Iterate --> P
+  T -- Ship --> X[Deploy + online A/B]

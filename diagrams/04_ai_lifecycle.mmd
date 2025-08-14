@@ -1,0 +1,12 @@
+flowchart LR
+  A[Problem Brief] --> B{Data Ready?}
+  B -- No --> B1[Data work: access, quality, privacy]
+  B -- Yes --> C[Design: pattern, guardrails, metrics]
+  C --> D[Build: model/prompt + retrieval/tools]
+  D --> E[Evaluate: offline + online]
+  E --> F{Meets gates?}
+  F -- No --> C
+  F -- Yes --> G[Deploy Pilot]
+  G --> H[Monitor: quality, cost, safety]
+  H --> I{Promote, Pivot, or Park}
+  I --> A

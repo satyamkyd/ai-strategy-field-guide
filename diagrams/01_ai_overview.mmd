@@ -1,0 +1,11 @@
+flowchart LR
+  A[Business Problem] --> B{Is it a clear rule?}
+  B -- Yes --> R[Use rules/automation]
+  B -- No --> C{Do we need a prediction or generation?}
+  C -- Prediction/Score --> M[Traditional ML]
+  C -- Content/Summary/Extraction --> G[Generative AI]
+  M --> E[Evaluate: accuracy/ROC/MAE]
+  G --> H[Evaluate: faithfulness, groundedness]
+  E --> D[Deploy/Monitor]
+  H --> D
+  D --> A

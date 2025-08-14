@@ -1,0 +1,11 @@
+sequenceDiagram
+  participant Exec as Exec Sponsor
+  participant PM as PM/AI Translator
+  participant Eng as Data/ML Eng
+  participant SME as Business SME
+  Exec->>PM: Approve pilot scope (A)
+  PM->>SME: Requirements (R)
+  PM->>Eng: Data access (R)
+  Eng-->>PM: Model/Eval results (C)
+  SME-->>PM: UAT signoff (C)
+  Exec-->>PM: Go/No-Go (A)

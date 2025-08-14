@@ -1,0 +1,11 @@
+flowchart LR
+  A[Task] --> B{Structured output needed?}
+  B -- Yes --> E[Extraction/Parsing]
+  B -- No --> C{Answer needs private knowledge?}
+  C -- Yes --> R[RAG Q&A/Summarize]
+  C -- No --> G[Direct Generation]
+  R --> T{Tools needed?}
+  G --> T
+  E --> T
+  T -- Yes --> U[Function Calling / Agents]
+  T -- No --> O[Ship w/ Eval & Guardrails]
